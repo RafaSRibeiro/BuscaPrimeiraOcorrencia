@@ -34,6 +34,15 @@ public class Controller {
         System.out.println("---------------------------------------------------------------------------------");
         System.out.println("Busca elemento Médio elemento de 42");
         buscaElemento(populacao42Elementos, 21);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca inexistente de 11");
+        buscaElemento(populacao11Elementos, 100);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca inexistente elemento de 21");
+        buscaElemento(populacao21Elementos, 100);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca inexistente elemento de 42");
+        buscaElemento(populacao42Elementos, 100);
     }
 
     /**
