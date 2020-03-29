@@ -12,11 +12,28 @@ public class Controller {
     private int[] populacao21Elementos = new int[21];
     private int[] populacao42Elementos = new int[42];
     Date data;
+    int contador = 0;
 
     public Controller() throws InterruptedException {
         populaElementos();
 
+        System.out.println("Busca segundo elemento de 11");
         buscaElemento(populacao11Elementos, 2);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca segundo elemento de 21");
+        buscaElemento(populacao21Elementos, 2);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca segundo elemento de 42");
+        buscaElemento(populacao42Elementos, 2);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca elemento Médio de 11");
+        buscaElemento(populacao11Elementos, 6);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca elemento Médio elemento de 21");
+        buscaElemento(populacao21Elementos, 11);
+        System.out.println("---------------------------------------------------------------------------------");
+        System.out.println("Busca elemento Médio elemento de 42");
+        buscaElemento(populacao42Elementos, 21);
     }
 
     /**
@@ -44,8 +61,10 @@ public class Controller {
      */
     private boolean buscaElemento(int[] populacaoElementos, int busca) throws InterruptedException {
         showTempoAtual();
+        contador = 0;
         for (int i = 0; i < populacaoElementos.length; i++) {
-            java.util.concurrent.TimeUnit.SECONDS.sleep(2);
+            java.util.concurrent.TimeUnit.SECONDS.sleep(1);
+            contador++;
             if (populacaoElementos[i] == busca) {
                 showTempoFinal();
                 return true;
@@ -62,14 +81,15 @@ public class Controller {
     private void showTempoAtual() {
         data = new Date();
         SimpleDateFormat estiloData = new SimpleDateFormat("mm:ss.SSS");
-        System.out.println(estiloData.format(data));
+        System.out.println("Início: " + estiloData.format(data));
     }
 
     private void showTempoFinal() {
         Date dataFinal = new Date();
         SimpleDateFormat estiloData = new SimpleDateFormat("mm:ss.SSS");
-        System.out.println(estiloData.format(dataFinal));
-        System.out.println(estiloData.format(dataFinal.getTime() - data.getTime()));
+        System.out.println("Fim: " + estiloData.format(dataFinal));
+        System.out.println("Tempo Total: " + estiloData.format(dataFinal.getTime() - data.getTime()));
+        System.out.println("Quantidade de interações: " + contador);
     }
 
 }
